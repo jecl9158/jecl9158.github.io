@@ -1,23 +1,123 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title> My Portfolio </title>
-</head>
+<<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <style>
+      body {
+          font: 20px Montserrat, sans-serif;
+          line-height: 1.8;
+          color: #f5f6f7;
+        }
+        p {font-size: 16px;}
+        .margin {margin-bottom: 45px;}
+        .bg-1 { 
+          background-color: #1abc9c; /* Green */
+          color: #ffffff;
+        }
+        .bg-2 { 
+          background-color: #474e5d; /* Dark Blue */
+          color: #ffffff;
+        }
+        .bg-3 { 
+          background-color: #ffffff; /* White */
+          color: #555555;
+        }
+        .bg-4 { 
+          background-color: #2f2f2f; /* Black Gray */
+          color: #fff;
+        }
+        .bg-5 { 
+          background-color: pink; /* Black Gray */
+          color: #fff;
+        }
+        .container-fluid {
+          padding-top: 70px;
+          padding-bottom: 70px;
+        }
+        .navbar {
+          padding-top: 15px;
+          padding-bottom: 15px;
+          border: 0;
+          border-radius: 0;
+          margin-bottom: 0;
+          font-size: 12px;
+          letter-spacing: 5px;
+        }
+        .navbar-nav  li a:hover {
+          color: rgb(77, 77, 247) !important;
+        }
+        </style>
+      </head>
+      <!-- Navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="wa5.html">Jessica Clarke</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="aboutme.html" aria-current="page">About me/ Resume</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="contact.html" >Contact me</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
 <body> 
     
 <!-- I found to do a multiple page set on w3.org. -->
-<ul class = "navbar"> 
+<!-- <ul class = "navbar"> 
     <li><a href = "wa5.html"> Home Page</a>
     <li> <a href = "aboutme.html">About Me</a>
     <li><a href = "portfolio.html">Portfolio</a>
     <li><a href = "contact.html">Contact </a>
     </li>
-</ul>
-<h1>Contact Info</h1>
-<p>If you could like to reach out and contact me below is my information. 
-    <li>Email: jecl9158@colorado.Enceladus
-    <li> LinkedIn: jesssica-r-clarke
-    <li> GitHub: jecl9158.github 
-    </li>
-</p>
+</ul> -->
+<!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Joel Holton</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Information Science</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                    </ul>
+ -->
+<div class = "container-fluid bg-3 text-center">
+    <h3 class= "margin">Connect with me!</h3> <br> 
+    <div class="margin">
+        <p style = "color:black"> <a herf = "https://www.linkedin.com/in/jessica-r-clarke/"> Linked In</a> <br> 
+        <p style = "color:black"> Email: <a herf = "mailto:jessica.clarke@colorado.edu"> jessica.clarke@colorado.edu</a></p>
+        <p style = "color:black"><a herf = "https://github.com/jecl9158/">GitHub</a></p>
+    </div>
+</div>
+<!-- <footer class="container-fluid bg-4 text-center">
+    <h1>Jessica Clarke</h1> 
+    <a href="https://www.linkedin.com/in/jessica-r-clarke/"> <i class="fa fa-linkedin-square fa-4x"></i></a>
+    <a href="mailto:jessica.clarke@colorado.edu"><i class="fa fa-envelope-square fa-4x"></i></a>
+    <p>This website is coded and designed by Jessica Clarke. </p>
+  </footer> -->
+  <footer class="container tm-footer">
+    <div class="row tm-footer-row">
+      <p class="col-md-10 col-sm-12 mb-0" style = "color:black">
+        This website is coded and designed by Jessica Clarke
+      </p>
+      <p class="col-md-10 col-sm-12 mb-0" style = "color:black" >Let's get connected</p>
+      <a rel="nofollow" href="https://www.linkedin.com/in/jessica-r-clarke/" class="tm-footer-link">Linked In</a>
+      <a rel="nofollow" href="mailto:jessica.clarke@colorado.edu" class="tm-footer-link">Email</a>
+    </div>
+  </footer>
+</body>
+
