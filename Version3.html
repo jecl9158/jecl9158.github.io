@@ -38,7 +38,7 @@ var chart = new Chart(ctx, {
     }
 });
 ctx.onclick = function(e) {
-   var slice = myPieChart.getElementAtEvent(e);
+   var slice = chart.getElementAtEvent(e);
    if (!slice.length) return; // return if not clicked on slice
    var label = slice[0]._model.label;
    switch (label) {
