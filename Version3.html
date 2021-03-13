@@ -6,6 +6,9 @@
 
 <script type="text/javascript">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
@@ -38,7 +41,7 @@ var chart = new Chart(ctx, {
     }
 });
 ctx.onclick = function(e) {
-   var slice = chart.getElementAtEvent(e);
+   var slice = myChart.getElementAtEvent(e);
    if (!slice.length) return; // return if not clicked on slice
    var label = slice[0]._model.label;
    switch (label) {
@@ -57,5 +60,5 @@ ctx.onclick = function(e) {
 
 </script>
 <p> Version 2:The new update on this one is with the colors. I changed red stars to red, and blue stars to blue. </p>
-<p>Version 3: To improve interactivity, I added a feature into the chart. Where if you click on a red or blue star it will take you to that wiki page for more information. Go ahead, try it!</p>
+<p>Version 3: To improve interactivity, I tried to add a feature into the chart. Where if you click on a red or blue star it will take you to that wiki page for more information.</p>
 
