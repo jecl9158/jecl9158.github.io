@@ -39,7 +39,7 @@ var chart = new Chart(ctx, {
 });
 canvas.onclick = function(e) {
    var slice = chart.getElementAtEvent(e);
-   if (!slice.length) return; // return if not clicked on slice
+   if (!slice) return; // return if not clicked on slice
    var label = slice[0]._model.label;
    switch (label) {
       // add case for each label/slice
