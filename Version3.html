@@ -37,24 +37,31 @@ var chart = new Chart(ctx, {
         }
     }
 });
-canvas.onclick = function(e) {
-   var slice = chart.getElementAtEvent(e);
-   if (!slice) return; // return if not clicked on slice
-   var label = slice[0]._model.label;
-   switch (label) {
-      // add case for each label/slice
-      case 'RedStar':
-         alert('clicked on Red Stars');
-         window.open('https://en.wikipedia.org/wiki/Red_giant');
-         break;
-      case 'BlueStar':
-         alert('clicked on Blue Stars');
-         window.open('https://en.wikipedia.org/wiki/Blue_giant');
-         break;
-      // add rests ...
-   }
-}
-
+// canvas.onclick = function(e) {
+//    var slice = chart.getElementAtEvent(e);
+//    if (!slice) return; // return if not clicked on slice
+//    var label = slice[0]._model.label;
+//    switch (label) {
+//       // add case for each label/slice
+//       case 'RedStar':
+//          alert('clicked on Red Stars');
+//          window.open('https://en.wikipedia.org/wiki/Red_giant');
+//          break;
+//       case 'BlueStar':
+//          alert('clicked on Blue Stars');
+//          window.open('https://en.wikipedia.org/wiki/Blue_giant');
+//          break;
+//       // add rests ...
+//    }
+// }
+document.getElementById("myChart").onclick = function(evt){
+			var activePoints = myChart.getElementsAtEvent(evt);
+			var firstPoint = activePoints[0];
+			var label = myChart.data.labels[firstPoint._index];
+			var value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+			if (firstPoint !== undefined)
+				alert(label + ": " + value);
+		};
 </script>
 <p> Version 2:The new update on this one is with the colors. I changed red stars to red, and blue stars to blue. </p>
 <p>Version 3: To improve interactivity, I added a feature into the chart. Where if you click on a red or blue star it will take you to that wiki page for more information. Go ahead, try it!</p>
