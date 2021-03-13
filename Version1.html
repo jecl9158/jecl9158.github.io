@@ -18,9 +18,9 @@ $.getJSON("staroutput.json", function(data_from_file){
 
         // The data for our dataset
         data: {
-            labels: ['x', 'y'],
+            labels: ['Red stars', 'Blue stars'],
             datasets: [{
-                label: 'Fake data',
+                label: 'Star Data',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [data_from_file["x"], data_from_file["y"]],
