@@ -1,1 +1,61 @@
+<canvas id="myChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ['RedStar', 'BlueStar'],
+        datasets: [{
+            label: 'Star Data',
+            backgroundColor: ['red', 'blue'],
+            borderColor: 'rgb(255, 99, 132)',
+            data: [112, 56],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+    scales: {
+            yAxes: [{
+                display: true,
+                stacked: true,
+                ticks: {
+                    min: 0, // minimum value
+                    max: 200 // maximum value
+                }
+            }]
+        }
+    }
+});
+canvasP.onclick = function(e) {
+   var slice = myPieChart.getElementAtEvent(e);
+   if (!slice.length) return; // return if not clicked on slice
+   var label = slice[0]._model.label;
+   switch (label) {
+      // add case for each label/slice
+      case 'RedStar':
+         alert('clicked on Red Stars');
+         window.open('https://en.wikipedia.org/wiki/Red_giant');
+         break;
+      case 'BlueStar':
+         alert('clicked on Blue Stars');
+         window.open('https://en.wikipedia.org/wiki/Blue_giant');
+         break;
+      // add rests ...
+   }
+}
+
+</script>
+<p> Version 2:The new update on this one is with the colors. I changed red stars to red, and blue stars to blue. </p>
+<p>Version 3: To improve interactivity, I added a feature into the chart. Where if you click on a red or blue star it will take you to that wiki page for more information. Go ahead, try it!</p>
 
