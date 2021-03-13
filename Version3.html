@@ -20,8 +20,7 @@ var chart = new Chart(ctx, {
             label: 'Star Data',
             backgroundColor: ['red', 'blue'],
             borderColor: 'rgb(255, 99, 132)',
-            data: [112, 56],
-            link:['https://en.wikipedia.org/wiki/Red_giant','https://en.wikipedia.org/wiki/Blue_dwarf_(red-dwarf_stage)']
+            data: [112, 56]
         }]
     },
 
@@ -39,9 +38,23 @@ var chart = new Chart(ctx, {
         }
     }
 });
-function onClick(e){
-    window.open(e.dataPoint.link, '_blank');
-};
+canvas.onclick = function(e) {
+   var slice = chart.getElementAtEvent(e);
+   if (!slice.length) return; // return if not clicked on slice
+   var label = slice[0]._model.label;
+   switch (label) {
+      // add case for each label/slice
+      case 'RedStar':
+         alert('clicked on slice 5');
+         window.open('www.example.com/foo');
+         break;
+      case 'BlueStar':
+         alert('clicked on slice 6');
+         window.open('www.example.com/bar');
+         break;
+      // add rests ...
+   }
+}
 
 </script>
 <p> Version 2:The new update on this one is with the colors. I changed red stars to red, and blue stars to blue. </p>
