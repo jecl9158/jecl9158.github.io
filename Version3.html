@@ -37,7 +37,7 @@ var chart = new Chart(ctx, {
         }
     }
 });
-canvasP.onclick = function(e) {
+canvas.onclick = function(e) {
    var slice = myPieChart.getElementAtEvent(e);
    if (!slice.length) return; // return if not clicked on slice
    var label = slice[0]._model.label;
