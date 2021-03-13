@@ -6,42 +6,36 @@
 
 <script type="text/javascript">
 
-$.getJSON("staroutput.json", function(data_from_file){
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
 
-    var ctx = document.getElementById('myChart').getContext('2d');
-    console.log("hey you got data")
-    console.log(data_from_file)
+    // The data for our dataset
+    data: {
+        labels: ['RedStar', 'BlueStar'],
+        datasets: [{
+            label: 'Star Data',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [112, 566],
+        }]
+    },
 
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'bar',
-
-        // The data for our dataset
-        data: {
-            labels: ['Red stars', 'Blue stars'],
-            datasets: [{
-                label: 'Star Data',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [data_from_file["x"], data_from_file["y"]],
+    // Configuration options go here
+    options: {
+    scales: {
+            yAxes: [{
+                display: true,
+                stacked: true,
+                ticks: {
+                    min: 0, // minimum value
+                    max: 10 // maximum value
+                }
             }]
-        },
-
-        // Configuration options go here
-        options: {
-        scales: {
-                yAxes: [{
-                    display: true,
-                    stacked: true,
-                    ticks: {
-                        min: 0, // minimum value
-                        max: 200 // maximum value
-                    }
-                }]
-            }
         }
-    });
+    }
+});
 
-})
 
 </script>
