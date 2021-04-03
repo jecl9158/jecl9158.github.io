@@ -1,1 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/league.min.css" id="theme">
+
+		 <!--Theme used for syntax highlighted code -->
+		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+		
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+                    <h1>How to make this</h1>
+                         <p>(Revel JS Presentation)</p>
+                         <iframe src="https://giphy.com/embed/kxkmUjgUwzhk7uIxOA" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen>
+                        </iframe><p><a href="https://giphy.com/gifs/hyperrpg-twitch-kollok-kollok1991-kxkmUjgUwzhk7uIxOA"></a></p>
+						<!--https://www.w3schools.com/charsets/ref_emoji.asp-->
+				</section>
+				<section>
+					<h3>1. Starting a File</h3>
+                    <p>Start an hmtl file and load it in your perfered way.
+                        Once you have that up and running we need to import all of our style sheet libraries. 
+                        To do this add: 
+                        <pre><code class='tex' data-trim>
+                           ( <link rel="stylesheet" href=""> ) 
+                        </code></pre>
+                        Inside href place the reset, reveal, and theme from any cdn website for css.
+                    </p>
+				</section>
+				<section>
+					<h2>2. Making a slide</h2>
+                    Start a slide by making section brackets
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+                 	<pre><code data-trim>
+						(< section > Make slide here < /section >)
+					</code></pre>
+				</section>
+				<section data-transition ="zoom">
+					<h2>Wanna add an animation?</h2>
+                    <p> In the 'section' block put data-transition = "zoom"</p>
+                    Ive done that with this slide 
+                    <span style='font-size:100px;'>&#128579;</span>
+				</section>
+				<section data-transition-speed="fast">
+					<h2>Different Transition</h2>
+                    You can put in different transitions with keywrods like: 
+                    fade, slide, convex, convave, and none	
+                </section>				
+				<section> 
+					<h2>Change the Colors</h2>
+                    <p>In your "<link>" for theme ID, theme/league.min.css, you can change 'league' to any of the following: 
+                    moon, black, white, beige, sky, night, serif and more!
+                    </p>
+                </section>
+                <section>
+                    <h2>Now you have a Presentation</h2>>
+                    <iframe src="https://giphy.com/embed/13cACn6mlO56kU" width="480" height="202" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/presentation-13cACn6mlO56kU"></a></p>
+                </section>
+				  
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/notes/notes.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/markdown/markdown.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'c/t',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
 
