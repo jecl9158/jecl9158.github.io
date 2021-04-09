@@ -7,7 +7,7 @@
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/moon.min.css" id="theme">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/blood.min.css" id="theme">
         <!-- Vega script tags-->
 		<script src="https://cdn.jsdelivr.net/npm/vega@5.19.1"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0"></script>
@@ -30,71 +30,247 @@
 					<p> Adding vega into HTML.</p>
                     <p>These script tags must be included in the HTML document for visualizations can render.</p>
                     <br> 
-                    <pre><code data-trim data noescape>
-                        script src="https://cdn.jsdelivr.net/npm/vega@5.19.1"> /script>
-                        script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0"> /script>
-                        script src="https://cdn.jsdelivr.net/npm/vega-embed@6.15.1" /script> 
-                    </code></pre>
+                    <pre><code data-trim data-line-numbers=1|2|3|><script type="text/template">
+                        script src="https://cdn.jsdelivr.net/npm/vega@5.19.1">< /script>
+                        script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0">< /script>
+                        script src="https://cdn.jsdelivr.net/npm/vega-embed@6.15.1">< /script>
+                    </script></code></pre>
 				</section>                
                 
                 <section> 
-                    <p>This is a test section</p>
-                    <pre><code data-trim data-line-numbers=1,2|3-10|13-30|31-35><script type="text/template">
-                        <div id="vis"></div>
-                        <script type="text/javascript">
-                            var spec = {
-                                "width":800,
-                                "height":600,
-                                  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                                  "config": {
-                                    "view": {
-                                      "continuousHeight": 300,
-                                      "continuousWidth": 400
-                                    }
-                                  },
-                                  "data": {
-                                    "url": "https://vega.github.io/vega-datasets/data/cars.json"
-                                  },
-                                  "encoding": {
-                                    "color": {
-                                      "field": "Origin",
-                                      "type": "nominal"
-                                    },
-                                    "x": {
-                                      "field": "Horsepower",
-                                      "type": "quantitative"
-                                    },
-                                    "y": {
-                                      "field": "Miles_per_Gallon",
-                                      "type": "quantitative"
-                                    }
-                                  },
-                                  "mark": "point"
-                                };  /* JSON dump of your chart's spec */
-
-                        var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
-                        vegaEmbed("#vis", spec, opt);
-                    < /script>
-
-                    </script></code></pre>
+                    <h3> Adding in vega </h3>
+                    <p> To add a visual into html we need to add a new section, then input the code/ add in our visual.</p>
+                    <section> 
+                        <p>With the code below we can add in the visual into the {} next to var spec</p>
+                        <pre><code data-trim data-line-numbers=1|2|3|><script type="text/template">
+                            div id="vis">< /div>
+                            script type="text/javascript">
+                                var spec = { // Add visual here } 
+                                var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+                                vegaEmbed("#vis", spec, opt);
+                            < /script>
+                        </script></code></pre>
+                    </section>
                 </section>
-                
+            
 				<section>
 					<!--Vega visualization goes here-->
+                    <h2>Visual 1</h2>
+                    <p> here is a chart with polots that the curvature of the plot can be changed</p>
 					<div id="vis"></div>
 					<script type="text/javascript">
-						var spec = {};  /* JSON dump of your chart's spec */
+						var spec = {"$schema": "https://vega.github.io/schema/vega/v5.json",
+                                    "description": "A basic line chart example.",
+                                    "width": 500,
+                                    "height": 200,
+                                    "padding": 5,
+
+                                    "signals": [
+                                        {
+                                        "name": "interpolate",
+                                        "value": "linear",
+                                        "bind": {
+                                            "input": "select",
+                                            "options": [
+                                            "basis",
+                                            "cardinal",
+                                            "catmull-rom",
+                                            "linear",
+                                            "monotone",
+                                            "natural",
+                                            "step",
+                                            "step-after",
+                                            "step-before"
+                                            ]
+                                        }
+                                        }
+                                    ],
+
+                                    "data": [
+                                        {
+                                        "name": "table",
+                                        "values": [
+                                            {"x": 0, "y": 28, "c":0}, {"x": 0, "y": 20, "c":1},
+                                            {"x": 1, "y": 43, "c":0}, {"x": 1, "y": 35, "c":1},
+                                            {"x": 2, "y": 81, "c":0}, {"x": 2, "y": 10, "c":1},
+                                            {"x": 3, "y": 19, "c":0}, {"x": 3, "y": 15, "c":1},
+                                            {"x": 4, "y": 52, "c":0}, {"x": 4, "y": 48, "c":1},
+                                            {"x": 5, "y": 24, "c":0}, {"x": 5, "y": 28, "c":1},
+                                            {"x": 6, "y": 87, "c":0}, {"x": 6, "y": 66, "c":1},
+                                            {"x": 7, "y": 17, "c":0}, {"x": 7, "y": 27, "c":1},
+                                            {"x": 8, "y": 68, "c":0}, {"x": 8, "y": 16, "c":1},
+                                            {"x": 9, "y": 49, "c":0}, {"x": 9, "y": 25, "c":1}
+                                        ]
+                                        }
+                                    ],
+
+                                    "scales": [
+                                        {
+                                        "name": "x",
+                                        "type": "point",
+                                        "range": "width",
+                                        "domain": {"data": "table", "field": "x"}
+                                        },
+                                        {
+                                        "name": "y",
+                                        "type": "linear",
+                                        "range": "height",
+                                        "nice": true,
+                                        "zero": true,
+                                        "domain": {"data": "table", "field": "y"}
+                                        },
+                                        {
+                                        "name": "color",
+                                        "type": "ordinal",
+                                        "range": "category",
+                                        "domain": {"data": "table", "field": "c"}
+                                        }
+                                    ],
+
+                                    "axes": [
+                                        {"orient": "bottom", "scale": "x"},
+                                        {"orient": "left", "scale": "y"}
+                                    ],
+
+                                    "marks": [
+                                        {
+                                        "type": "group",
+                                        "from": {
+                                            "facet": {
+                                            "name": "series",
+                                            "data": "table",
+                                            "groupby": "c"
+                                            }
+                                        },
+                                        "marks": [
+                                            {
+                                            "type": "line",
+                                            "from": {"data": "series"},
+                                            "encode": {
+                                                "enter": {
+                                                "x": {"scale": "x", "field": "x"},
+                                                "y": {"scale": "y", "field": "y"},
+                                                "stroke": {"scale": "color", "field": "c"},
+                                                "strokeWidth": {"value": 2}
+                                                },
+                                                "update": {
+                                                "interpolate": {"signal": "interpolate"},
+                                                "strokeOpacity": {"value": 1}
+                                                },
+                                                "hover": {
+                                                "strokeOpacity": {"value": 0.5}
+                                                }
+                                            }
+                                            }
+                                        ]
+                                        }
+                                    ]
+                         };  /* JSON dump of your chart's spec */
 						var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
 						vegaEmbed("#vis", spec, opt);
 					</script>
 				</section>
 
-				<section>
-					
-				</section>
+                <section>
+                    <h2>Visual 2</h2>
+                    <p>This is a pie chart that you can minipuate to be different shapes and sizes.</p>
+                    <div id="vis2"></div>
+					<script type="text/javascript">
+                        var spec = {  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A basic pie chart example.",
+  "width": 200,
+  "height": 200,
+  "autosize": "none",
+
+  "signals": [
+    {
+      "name": "startAngle", "value": 0,
+      "bind": {"input": "range", "min": 0, "max": 6.29, "step": 0.01}
+    },
+    {
+      "name": "endAngle", "value": 6.29,
+      "bind": {"input": "range", "min": 0, "max": 6.29, "step": 0.01}
+    },
+    {
+      "name": "padAngle", "value": 0,
+      "bind": {"input": "range", "min": 0, "max": 0.1}
+    },
+    {
+      "name": "innerRadius", "value": 0,
+      "bind": {"input": "range", "min": 0, "max": 90, "step": 1}
+    },
+    {
+      "name": "cornerRadius", "value": 0,
+      "bind": {"input": "range", "min": 0, "max": 10, "step": 0.5}
+    },
+    {
+      "name": "sort", "value": false,
+      "bind": {"input": "checkbox"}
+    }
+  ],
+
+  "data": [
+    {
+      "name": "table",
+      "values": [
+        {"id": 1, "field": 4},
+        {"id": 2, "field": 6},
+        {"id": 3, "field": 10},
+        {"id": 4, "field": 3},
+        {"id": 5, "field": 7},
+        {"id": 6, "field": 8}
+      ],
+      "transform": [
+        {
+          "type": "pie",
+          "field": "field",
+          "startAngle": {"signal": "startAngle"},
+          "endAngle": {"signal": "endAngle"},
+          "sort": {"signal": "sort"}
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "table", "field": "id"},
+      "range": {"scheme": "category20"}
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "arc",
+      "from": {"data": "table"},
+      "encode": {
+        "enter": {
+          "fill": {"scale": "color", "field": "id"},
+          "x": {"signal": "width / 2"},
+          "y": {"signal": "height / 2"}
+        },
+        "update": {
+          "startAngle": {"field": "startAngle"},
+          "endAngle": {"field": "endAngle"},
+          "padAngle": {"signal": "padAngle"},
+          "innerRadius": {"signal": "innerRadius"},
+          "outerRadius": {"signal": "width / 2"},
+          "cornerRadius": {"signal": "cornerRadius"}
+        }
+      }
+    }
+  ]
+};
+                        var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+                        vegaEmbed("#vis2", spec, opt);
+                        </script> 
+                </section>
 			</div>
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -103,7 +279,7 @@
 				hash: true,
 				slideNumber: 'h/v',
 				// Learn about plugins: https://revealjs.com/plugins/
-				//plugins: [ RevealHighlight ]
+				plugins: [ RevealHighlight ]
 			});
 		</script>
 	</body>
