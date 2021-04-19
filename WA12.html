@@ -1,1 +1,175 @@
 
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Weekly Assignment 12</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/beige.min.css" id="theme">
+        <!-- Vega script tags-->
+		<script src="https://cdn.jsdelivr.net/npm/vega@5.19.1"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.15.1"></script>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>Weekly Assignment 12</h3>
+					<p>INFO 3402, Spring 2021</p>
+                    <p>Jessica Clarke</p>
+				</section>			         
+            
+                </section>
+					<section>
+						<!--Vega visualization goes here-->
+						<h3> Customizing Vega Visualizations.</h3>
+						<p>How to change the color of the chart</p>
+						<p>With in our Vega specs, we have a section called "mark". In Mark is where we specify type (area, bar, ect.) and color, which you can choose.</p>
+						<br> 
+						<pre><code data-trim data-line-numbers=6-9|7|8><script type="text/template">
+							"width": 400,
+								"height": 300,
+								"data": {
+									"url": "https://vega.github.io/vega-datasets/data/wheat.json"
+								},
+								"mark": {
+									"type": "area", 
+									"color": "green"								
+								},
+								"encoding": {
+									"x": {
+										"field": "year",
+										"type": "temporal",
+										"axis":{"titleFontSize":15}
+									},
+									"y": {
+										"field": "wheat",
+										"type": "quantitative",
+										"axis": {"titleFontSize":15}
+									}
+								}
+						</script></code></pre>
+					</section>  
+
+					<section>
+						<h2>Wheat Production From 1565-1820</h2>
+						<p> This chart plot the ammount of wheat produced between 1565 and 1820</p>
+						<div id="vis"></div>
+						<script type="text/javascript">
+							var spec ={"width": 400,
+								"height": 300,
+								"data": {
+									"url": "https://vega.github.io/vega-datasets/data/wheat.json"
+								},
+								"mark": {
+									"type": "area", 
+									"color": "green"								
+								},
+								"encoding": {
+									"x": {
+										"field": "year",
+										"type": "temporal",
+										"axis":{"titleFontSize":15}
+									},
+									"y": {
+										"field": "wheat",
+										"type": "quantitative",
+										"axis": {"titleFontSize":15}
+									}
+								}};  /* JSON dump of your chart's spec */
+							var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+							vegaEmbed("#vis", spec, opt);
+						</script>
+					</section>
+				</section>
+
+                <section>
+					<section>
+						<h3> Adding Facests</h3>
+						<p> Facest help to break up visualizations with categories realting to one another. To add one, put a new field in "encoding" called "color" as shown below.And then another field called "column".  </p>
+						<pre><code data-trim data-line-numbers=12-20><script type="text/template">
+							"encoding": {
+								"x": {
+									"field": "Species",
+									"type": "nominal",
+									"bin": { "maxbins":15}
+								},
+								"y": {
+									"aggregate": "count", 
+									"title": "Number of Penguins",
+									"type": "quantitative"
+								},
+								"column":{
+									"field": "Body Mass (g)",
+									"type": "quantitative", 
+									"bin": { "maxbins":25}, 
+									"spacing":20
+								}, 
+								"color":{ "field": "Species",
+											"type":"nominal}
+							}
+						</script></code></pre>
+					</section>
+					<section>
+					<h2>Penguin Facets</h2>
+                    <p>Each penguin speciecs is a different color, which is the facets.</p>
+                    <div id="vis2"></div>
+					<script type="text/javascript">
+                        var spec = { "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+								"height":200,
+								"data": {
+									"url": "https://vega.github.io/vega-datasets/data/penguins.json"
+								},
+								"mark": "bar",
+								"encoding": {
+									"x": {
+										"field": "Species",
+										"type": "nominal",
+										"bin": { "maxbins":15}
+									},
+									"y": {
+										"aggregate": "count", 
+										"title": "Number of Penguins",
+										"type": "quantitative"
+									},
+									"column":{
+										"field": "Body Mass (g)",
+										"type": "quantitative", 
+										"bin": { "maxbins":25}, 
+										"spacing":20
+									}, 
+									"color":{ "field": "Species",
+												"type":"nominal"}
+									
+								}
+							};
+                        var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+                        vegaEmbed("#vis2", spec, opt);
+                        </script> 
+					</section>
+                </section>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'h/v',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealHighlight ]
+			});
+		</script>
+	</body>
+</html>
