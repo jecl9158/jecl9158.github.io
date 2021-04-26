@@ -1,1 +1,130 @@
 
+<!DOCTYPE html>
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.19.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.15.1"></script>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <style>
+      body {
+          font: 20px Montserrat, sans-serif;
+          line-height: 1.8;
+          color: #f5f6f7;
+        }
+        p {font-size: 16px;}
+        .margin {margin-bottom: 45px;}
+        .bg-1 { 
+          background-color: #1abc9c; /* Green */
+          color: #ffffff;
+        }
+        .bg-2 { 
+          background-color: #474e5d; /* Dark Blue */
+          color: #ffffff;
+        }
+        .bg-3 { 
+          background-color: #ffffff; /* White */
+          color: #555555;
+        }
+        .bg-4 { 
+          background-color: #2f2f2f; /* Black Gray */
+          color: #fff;
+        }
+        .bg-5 { 
+          background-color: pink; /* Black Gray */
+          color: #fff;
+        }
+        .container-fluid {
+          padding-top: 70px;
+          padding-bottom: 70px;
+        }
+        .navbar {
+          padding-top: 15px;
+          padding-bottom: 15px;
+          border: 0;
+          border-radius: 0;
+          margin-bottom: 0;
+          font-size: 12px;
+          letter-spacing: 5px;
+        }
+        .navbar-nav  li a:hover {
+          color: rgb(77, 77, 247) !important;
+        }
+        </style>
+      </head>   
+
+<body> 
+    <h1>Dogecoin in relation to Tesla sales.</h1>
+    <h2>Dogecoin stock</h2>
+						<p>Dogecoin Stock over 6 months</p>
+						<div id="dogecoin"></div>
+						<script type="text/javascript">
+						var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+	"width": 600,
+	"height": 400,
+	"data": {
+		"url": "https://raw.githubusercontent.com/cuinfoscience/INFO3402-Spring2021/main/Week16/DOGE-USD.csv"
+	},
+	"transform":[{
+		"filter":{"field":"Date",
+		"gte":2021, "timeUnit":"year"}
+	}],
+	"mark":"bar",
+	"encoding":{
+		"x":{
+			"field":"Date", 
+			"type":"temporal", 
+			"axis":{"tickCount": 5}
+		}, 
+		"y":{
+			"field":"Close", 
+			"type":"quantitative", "axis":{"tickCount":5}
+		}
+	}
+}
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#dogecoin", spec, opt);
+					</script>
+
+
+<h1>Tesla stock</h1>
+<h2>How was Tesla stock compared to doge coin? </h2>
+<div id="tesla"></div>
+        <script type="text/javascript">
+        var spec = {"$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+        "width": 600,
+        "height": 400,
+        "data":{ "url": "https://raw.githubusercontent.com/jecl9158/jecl9158.github.io/master/TSLA4_26_21.csv"
+        },
+        "transform":[{
+        "filter":{"field":"Date",
+        "gte":2021, "timeUnit":"year"}
+        }],
+        "mark":"line",
+        "encoding":{
+        "x":{
+        "field":"Date", 
+        "type":"temporal", 
+        "axis":{"tickCount": 5}
+        }, 
+        "y":{
+        "field":"Close", 
+        "type":"quantitative", "axis":{"tickCount":5}
+        }
+        }
+        };
+var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#tesla", spec, opt);
+					</script>
+
+</div>
+
+  
+</body>
